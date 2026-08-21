@@ -1,1 +1,100 @@
-body { font-family: system-ui, sans-serif; margin: 2rem; }
+/* Kiosk Home - full-screen chooser for the Pi touchscreen (1024x600). */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+:root {
+    --bg: #0b0e14;
+    --panel: #131824;
+    --panel-2: #1a2130;
+    --border: #232c3f;
+    --text: #e8ecf4;
+    --muted: #8a94a8;
+    --accent: #ff9f1c;
+    --ok: #3ddc84;
+    --err: #ff4655;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    overflow: hidden;
+    user-select: none;
+}
+
+#topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+    padding: 0 20px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+}
+#clock { color: var(--text); font-weight: 700; font-size: 19px; }
+
+#cards {
+    position: absolute;
+    top: 52px; bottom: 40px; left: 0; right: 0;
+    display: flex;
+    gap: 18px;
+    padding: 18px;
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.06s ease;
+    text-decoration: none;
+    color: var(--text);
+}
+.card:active { transform: scale(0.98); border-color: var(--accent); }
+
+.card .icon { font-size: 110px; line-height: 1; }
+.card .name { font-size: 40px; font-weight: 800; }
+.card .tagline { font-size: 18px; color: var(--muted); }
+
+.card .fact {
+    min-height: 26px;
+    font-size: 17px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.card .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); }
+.dot.online { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+.dot.offline { background: var(--err); }
+.status.offline-text { color: var(--err); }
+
+#footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--muted);
+}

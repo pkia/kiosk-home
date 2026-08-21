@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>kiosk-home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kiosk Home</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>kiosk-home</h1>
+    <div id="topbar">
+        <span id="topbar-left">dunbot kiosk</span>
+        <span id="topbar-right"><span id="clock"></span></span>
+    </div>
+
+    <div id="cards"></div>
+
+    <div id="footer">tap a dashboard to open it · the ⌂ button inside brings you back</div>
+
+    <script src="/static/kiosk-home.js"></script>
 </body>
 </html>
