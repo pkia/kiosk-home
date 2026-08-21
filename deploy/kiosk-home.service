@@ -1,0 +1,14 @@
+[Unit]
+Description=kiosk-home Web App
+After=network.target
+
+[Service]
+Type=simple
+User=ev
+WorkingDirectory=/home/ev/kiosk-home
+ExecStart=/home/ev/kiosk-home/venv/bin/python app.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

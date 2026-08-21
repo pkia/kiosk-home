@@ -1,0 +1,10 @@
+[Unit]
+Description=kiosk-home pull-based deploy job
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ev
+WorkingDirectory=/home/ev/kiosk-home
+ExecStart=/home/ev/kiosk-home/deploy/deploy.sh
